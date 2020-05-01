@@ -8,12 +8,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="index.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
             <a href="" class="navbar-brand">Logo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -74,12 +76,19 @@
             </div>
 
         </nav>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32234.473900234647!2d30.498586463808806!3d50.43663317936394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce59e3ab65a7%3A0x694b8565cab02eaf!2z0JzRg9C30LXQuSDQl9C-0LvQvtGC0ZYg0LLQvtGA0L7RgtCw!5e0!3m2!1suk!2sua!4v1588283747556!5m2!1suk!2sua"
-            width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-            tabindex="0"></iframe>
+        <div class="panel-body">
+            <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text"
+                class="form-control">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32234.473900234647!2d30.498586463808806!3d50.43663317936394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce59e3ab65a7%3A0x694b8565cab02eaf!2z0JzRg9C30LXQuSDQl9C-0LvQvtGC0ZYg0LLQvtGA0L7RgtCw!5e0!3m2!1suk!2sua!4v1588283747556!5m2!1suk!2sua"
+                width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0"></iframe>
+        </div>
     </div>
-    </div>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9ZHWlyTYEBgCvfI_4WHBS3uNi4U9pv_s&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
 </body>
 
 </html>
