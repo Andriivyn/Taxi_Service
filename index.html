@@ -8,6 +8,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- <script
+        src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyB9ZHWlyTYEBgCvfI_4WHBS3uNi4U9pv_s"
+        type="text/javascript" defer></script> -->
     <link rel="stylesheet" href="index.css">
 
     <script src="index.js"></script>
@@ -67,16 +70,18 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <button class="btn btn-dark" type="button">Вхід</button>
+                    <button class="btn btn-dark" type="button" data-toggle="modal"
+                        data-target="#authorization-modal">Вхід</button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-dark " type="button">Регістрація</button>
+                    <button class="btn btn-dark " type="button" data-toggle="modal"
+                        data-target="#registration-modal">Регістрація</button>
                 </li>
             </ul>
         </div>
 
     </nav>
-    <div class="container-fluid w-100">
+    <div class="container-fluid w-100 h-100">
         <div class="row flex-column main-search-container h-100 align-items-center justify-content-center">
             <div class="row text-search-container w-100 justify-content-center">
                 <h1 class="main-text-search align-self-end">Замовити таксі</h1>
@@ -86,17 +91,19 @@
                     <label class="adress-label" for="dAdress">Адреса відправлення: </label>
                     <input id="autocomplete" placeholder="Відправлення" onFocus="geolocate()" type="text"
                         class="form-control ">
+                    <input type="hidden" class="from-place-hidden" id="origin">
                 </div>
 
                 <div class="form-group w-25 col-6 col-sm-6 col-md-4 col-lg-3 col-lx-1 mx-auto my-auto">
                     <label class="adress-label" for="dAdress">Адреса прибуття: </label>
                     <input id="autocomplete1" placeholder="Прибуття" onFocus="geolocate()" type="text"
                         class="form-control">
+                    <input type="hidden" class="to-place-hidden" id="destination">
                 </div>
 
             </div>
 
-            <div class="row car-type-row w-100 justify-content-center h-20 align-self-end">
+            <div class="row car-type-row w-100 justify-content-center h-15 align-self-end">
                 <div class="car-type d-flex col-sm-6 col-md-6 col-lg-3 col-xl-2 justify-content-beetween">
                     <div class="row align-self-center flex-column w-75 car-icon ml-2">
                         <label for="" class="car-typename">Економ</label>
@@ -121,39 +128,114 @@
                 <div class="car-type d-flex col-sm-6 col-md-6 col-lg-3 col-xl-2 justify-content-beetween">
                     <div class="row align-self-center flex-column w-75 car-icon ml-2">
                         <label for="" class="car-typename">Мінівен</label>
-                        <img src="Pic/minivan.png" alt="" class="car-img-icon">
+                        <img src="Pic/minivan.png" alt="" class="car-img-icon" onclick="log()">
                     </div>
                     <div class="car-price align-self-center">123</div>
                 </div>
             </div>
-
+            <div class="row card-conteiner w-100 h-15"> </div>
         </div>
-</div>  
-        <footer class="main-footer row flex-column align-items-center justify-content-around h-25 w-100">
-            <div class="d-flex w-75 justify-content-center">
-                <div class="offset-1 col-4">Винник Андрій: <a href="https://www.google.com/" class="inst-link"><img
-                            class="insta-icon" src="Pic/icons/instagram.png" alt=""></a></div>
-                <div class="col-4">Волошко Максим: <a href="https://www.google.com/" class="inst-link"><img
-                            class="insta-icon" src="Pic/icons/instagram.png" alt=""></a></div>
+    </div>
+
+
+
+
+    <footer class="main-footer row flex-column align-items-center justify-content-around h-25 w-100">
+        <div class="d-flex w-75 justify-content-center h-15">
+            <div class="offset-1 col-4">Винник Андрій: <a href="https://www.google.com/" class="inst-link"><img
+                        class="insta-icon" src="Pic/icons/instagram.png" alt=""></a></div>
+            <div class="col-4">Волошко Максим: <a href="https://www.google.com/" class="inst-link"><img
+                        class="insta-icon" src="Pic/icons/instagram.png" alt=""></a></div>
+        </div>
+        <div class="row w-100 justify-content-center h-25">
+            <div class="footer-credit-cart col-3 offset-1">
+                <img src="Pic/icons/mastercard.png" alt="" class="credit-cart-logo">
             </div>
-            <div class="row w-100 justify-content-center h-25">
-                <div class="footer-credit-cart col-3 offset-1">
-                    <img src="Pic/icons/mastercard.png" alt="" class="credit-cart-logo">
+
+            <div class="footer-credit-cart col-3">
+                <img src="Pic/icons/visa.png" alt="" class="credit-cart-logo">
+            </div>
+        </div>
+        <div class="row company-name">©2020 TaxoNaUKMA Inc.
+        </div>
+    </footer>
+
+    <div class="modal fade" id="registration-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="registration-header mx-auto">Регістрація</h5>
+                        <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="name">Ім'я</label>
+                            <input type="text" class="form-control" id="name" required></div>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <div class="form-group">
+                            <label for="surname">Прізвище</label>
+                            <input type="text" class="form-control" required></div>
+                        <div class="form-group">
+                            <label for="lastname">По-батькові</label>
+                            <input type="text" class="form-control"></div>
+                        <div class="form-group">
+                            <label for="phoneNum">Номер телефону</label>
+                            <input type="text" class="form-control" required></div>
+                        <div class="form-group">
+                            <label for="email" placeholder="example@taxo.com">E-mail</label>
+                            <input type="text" class="form-control"></div>
+                        <div class="form-group">
+                            <label for="card-num">№ банківської карти</label>
+                            <input type="text" class="form-control"></div>
+                        <div class="row w-100"><button type="submit"
+                                class="btn btn-primary mx-auto">Зареєструватися</button>
+                        </div>
+
+                    </form>
                 </div>
 
-                <div class="footer-credit-cart col-3">
-                    <img src="Pic/icons/visa.png" alt="" class="credit-cart-logo">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="authorization-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="authorization-header mx-auto">Авторизація</h5>
+                        <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                 </div>
+                <div class="modal-body">
+                    <form class="needs-validation" novalidate>
+                        <div class="form-group">
+
+                            <label for="phoneNum">Номер телефону</label>
+                            <input type="text" class="form-control" required></div>
+
+                        <div class="row w-100"><button type="submit" class="btn btn-primary mx-auto">Увійти</button>
+                        </div>
+
+                    </form>
+                </div>
+
             </div>
-            <div class="row company-name">©2020 TaxoNaUKMA Inc.
-            </div>
-            
-        </footer>
-    
+        </div>
+
+
+    </div>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9ZHWlyTYEBgCvfI_4WHBS3uNi4U9pv_s&libraries=places&callback=initAutocomplete"
         async defer></script>
-
+    <!-- <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9ZHWlyTYEBgCvfI_4WHBS3uNi4U9pv_s&libraries=places&callback=initAutocomplete"
+        async defer></script>
+ -->
 </body>
 
 </html>

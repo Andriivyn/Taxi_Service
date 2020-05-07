@@ -12,11 +12,10 @@ html, body{
 .adress-label{
     font-size: 24px;
 }
-.container-fluid{
-    height: 92%;
-}
+
 .car-type:hover{
-    background-color: rgb(182, 182, 182);
+    background-color: rgb(245, 255, 158);
+    border-radius: 10px;
 }
 .w-15{
     width: 15%;
@@ -53,16 +52,17 @@ html, body{
 .main-footer{
     background-color: #000;
     color:white;
-        font-weight: 150;
+    font-weight: 150;
+    margin: 0;
 
     
 }
 .insta-icon{
-    width: 6%;
+    width: 5%;
     transition: width 0.3s;
 }
 .insta-icon:hover{
-    width: 9%;
+    width: 8%;
 }
 .credit-cart-logo{
     width: 30%;
