@@ -90,14 +90,14 @@
                 <div class="form-group w-25 col-6 col-sm-6 col-md-4 col-lg-3 col-lx-1 mx-auto my-auto">
                     <label class="adress-label" for="dAdress">Адреса відправлення: </label>
                     <input id="autocomplete" placeholder="Відправлення" onFocus="geolocate()" type="text"
-                        class="form-control ">
+                        class="form-control adress-input">
                     <input type="hidden" class="from-place-hidden" id="origin">
                 </div>
 
                 <div class="form-group w-25 col-6 col-sm-6 col-md-4 col-lg-3 col-lx-1 mx-auto my-auto">
                     <label class="adress-label" for="dAdress">Адреса прибуття: </label>
                     <input id="autocomplete1" placeholder="Прибуття" onFocus="geolocate()" type="text"
-                        class="form-control">
+                        class="form-control adress-input">
                     <input type="hidden" class="to-place-hidden" id="destination">
                 </div>
 
@@ -146,7 +146,7 @@
             <div class="d-flex submit-container align-items-center justify-content-center w-100 h-10"><button
                     type=" submit" class="submit-btn"
                     onclick="toastr.success('Hi! I am success message.');">Замовити</button></div>
-                    
+
                     <div class="snackbar">Успішно замовлено!</div>
         </div>
     </div>

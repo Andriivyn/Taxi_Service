@@ -128,10 +128,13 @@ $(document).ready(function () {
 
 
     $(".submit-btn").click(function () {
+
         $(".payment-type").removeClass("type-active");
+
         $(".car-type").removeClass("type-active");
-    
-        var x = $(".snackbar");
+        
+        $(".adress-input").val("");
+
         $(".snackbar").addClass("show");
 
         setTimeout(function () { $(".snackbar").removeClass("show"); }, 3000);
