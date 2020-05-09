@@ -131,5 +131,9 @@ $(document).ready(function () {
         $(".payment-type").removeClass("type-active");
         $(".car-type").removeClass("type-active");
     
+        var x = $(".snackbar");
+        $(".snackbar").addClass("show");
+
+        setTimeout(function () { $(".snackbar").removeClass("show"); }, 3000);
     })
 });
