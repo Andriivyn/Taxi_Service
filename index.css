@@ -5,6 +5,7 @@ html, body{
     margin: 0;
     
 }
+
 .main-text-search{
     font-size: 50px;
     color: rgb(0, 0, 0);
@@ -14,7 +15,12 @@ html, body{
 }
 
 .car-type:hover{
-    background-color: rgb(245, 255, 158);
+    background-color: rgb(245, 253, 169);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.type-active{
+    background-color: rgb(245, 253, 169);
     border-radius: 10px;
 }
 .w-15{
@@ -29,6 +35,12 @@ html, body{
 }
 .h-15{
     height: 15%;
+}
+.h-10{
+    height: 10%;
+}
+.h-5{
+    height: 5%;
 }
 
 .car-img-icon{
@@ -66,4 +78,34 @@ html, body{
 }
 .credit-cart-logo{
     width: 30%;
+}
+
+.payment:hover{
+background-color: rgb(245, 255, 158);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit-btn{
+    background-color: rgb(245, 226, 52);
+    border-radius: 12px;
+    font-size: 25px;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    
+    transition-duration: 0.1s;
+
+}
+.submit-btn:hover {
+  background-color: rgb(230, 211, 42);
+}
+.submit-btn:active{
+    background-color: rgb(230, 211, 42);
+    width: 98%;
+    height: 98%;
+}
+.submit-btn:focus{
+cursor: pointer;
+  outline: none;
 }

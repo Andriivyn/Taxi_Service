@@ -133,7 +133,18 @@
                     <div class="car-price align-self-center">123</div>
                 </div>
             </div>
-            <div class="row card-conteiner w-100 h-15"> </div>
+            <div class="row payment-conteiner w-50 h-15 align-items-center justify-content-around">
+                <div
+                    class="d-flex payment-type cash-container payment h-75 w-25  align-items-center justify-content-around">
+                    <h3 class="cash-payment"> Готівка</h3>
+                </div>
+                <div
+                    class="d-flex payment-type card-container payment h-75 w-25 align-items-center justify-content-around ">
+                    <h3 class="card-payment">Картою</h3>
+                </div>
+            </div>
+            <div class="d-flex submit-container align-items-center justify-content-center w-15 h-10"><button type=" submit"
+                class="submit-btn ">Замовити</button></div>
         </div>
     </div>
 
@@ -162,7 +173,7 @@
 
     <div class="modal fade" id="registration-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="registration-header mx-auto">Регістрація</h5>
@@ -185,6 +196,14 @@
                         <div class="form-group">
                             <label for="phoneNum">Номер телефону</label>
                             <input type="text" class="form-control" required></div>
+                        <div class="form-group">
+                            <label for="password">Пароль</label>
+                            <input type="password" class="form-control pass" required></div>
+                        <div class="form-group">
+                            <label for="password">Повторіть пароль</label>
+                            <input type="password" class="form-control repass" id="repass" required>
+                            <small class="repass-fail"></small>
+                        </div>
                         <div class="form-group">
                             <label for="email" placeholder="example@taxo.com">E-mail</label>
                             <input type="text" class="form-control"></div>
@@ -214,9 +233,12 @@
                 <div class="modal-body">
                     <form class="needs-validation" novalidate>
                         <div class="form-group">
-
                             <label for="phoneNum">Номер телефону</label>
                             <input type="text" class="form-control" required></div>
+
+                        <div class="form-group">
+                            <label for="password">Пароль</label>
+                            <input type="password" class="form-control" required></div>
 
                         <div class="row w-100"><button type="submit" class="btn btn-primary mx-auto">Увійти</button>
                         </div>

@@ -34,7 +34,7 @@ function initAutocomplete() {
 function fillInAddress() {
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace();
-    
+
     for (var component in componentForm) {
         document.getElementById(component).value = '';
         document.getElementById(component).disabled = false;
@@ -83,3 +83,53 @@ function geolocate() {
         });
     }, false);
 })();
+$(document).ready(function () {
+    $(".repass").blur(function () {
+        var pass = $('.pass').val();
+        var repass = $('.repass').val();
+        console.log(pass);
+        console.log(repass);
+        // $('.repass').addClass("is-invalid");
+        if (pass != repass) {
+            $('.repass-fail').text("Паролі не співпадають");
+            $('.repass').addClass("is-invalid");
+            $('.pass').addClass("is-invalid");
+        }
+        else {
+
+            $('.repass').removeClass("is-invalid");
+            $('.pass').removeClass("is-invalid");
+            $('.repass').addClass("is-valid");
+            $('.pass').addClass("is-valid");
+            $('.repass-fail').text("Паролі співпадають");
+        }
+
+    })
+
+    $(".car-type").click(function () {
+        //make non active all siblings 
+        if (!$(this).hasClass("type-active")) {
+            $(this).addClass("type-active").siblings().removeClass("type-active");
+        }
+        //toggle active/non active
+        else {
+            $(this).removeClass("type-active");
+        }
+        
+    })
+    $(".payment-type").click(function () {
+        if (!$(this).hasClass("type-active")) {
+            $(this).addClass("type-active").siblings().removeClass("type-active");
+        }
+        else {
+            $(this).removeClass("type-active");
+        }
+    })
+
+
+    $(".submit-btn").click(function () {
+        $(".payment-type").removeClass("type-active");
+        $(".car-type").removeClass("type-active");
+    
+    })
+});
